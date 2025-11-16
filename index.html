@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Bus Route Selector</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Simple Bus Route Selector</h1>
+      <p class="subtitle">Choose an origin and destination to see the next bus.</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <form id="route-form" class="form" novalidate>
+          <div class="field">
+            <label for="origin">Origin</label>
+            <select id="origin" name="origin" aria-label="Origin stop" required></select>
+          </div>
+
+          <div class="field">
+            <label for="destination">Destination</label>
+            <select id="destination" name="destination" aria-label="Destination stop" required></select>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn-primary">Find Next Bus</button>
+            <button type="button" id="swap" class="btn-secondary" aria-label="Swap origin and destination">Swap</button>
+          </div>
+        </form>
+
+        <div id="result" class="result" aria-live="polite" role="status"></div>
+      </section>
+
+      <section class="card info">
+        <h2>About</h2>
+        <p>
+          This demo uses a fixed daily schedule for a few example routes. It finds the
+          next departure from your chosen origin to destination using your local time.
+        </p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Local time: <span id="now"></span></p>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+</html>
